@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style>
+        div{width:800px;margin: 0 auto;}
+        table {border-collapse:collapse;border-spacing:0;width:800px;}
+        table tr td ,table tr th {border-top:solid 1px #ccc;border-left:solid 1px #ccc;line-height: 40px;text-align: center;}
+        table tr td:last-child, table tr th:last-child {border-right:solid 1px #ccc;}
+        table tr:last-child td{border-bottom:solid 1px #ccc;}
+        a{text-decoration: none;font-size: 14px;}
+        .text{width:150px;}
+    </style>
+</head>
+<body>
+<div>
+    <div style="">
+        <div style="float: left;width:10%;">
+            <a href="/persons/add">新增</a>
+        </div>
+        <div style="float: right;width:90%;">
+            <form action="/persons/search" method="post">
+                姓名：<input type="text" name="s_name" value="" class="text"> &nbsp;&nbsp;
+                年龄：<input type="text" name="s_age" value=""  class="text"> &nbsp;&nbsp;
+                职业：<input type="text" name="s_professional" value="" class="text"> &nbsp;&nbsp;
+                <input type="submit" value="查询">
+            </form>
+        </div>
+    </div>
+
+    <table style="">
+        <tr>
+            <th width="10%">编号</th>
+            <th width="15%">操作</th>
+            <th width="15%">姓名</th>
+            <th width="10%">年龄</th>
+            <th width="50%">职业</th>
+        </tr>
+        <% if (datas.length) { %>
+        <% datas.forEach(function(person){ %>
+        <tr>
+            <td><%= person.id %></td>
+            <td><a href="/persons/del/<%= person.id %>">删除</a>&nbsp;&nbsp;<a href="/persons/toUpdate/<%= person.id %>">修改</a></td>
+            <td><%= person.name %></td>
+            <td><%= person.age %></td>
+            <td><%= person.professional %></td>
+        </tr>
+        <% }) %>
+        <% } %>
+    </table>
+</div>
+
+</body>
+</html>

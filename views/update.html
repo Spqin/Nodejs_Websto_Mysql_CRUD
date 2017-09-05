@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<body>
+    <div style="width: 800px;margin: auto;">
+        <form action="/persons/update" method="post">
+            <input type="hidden" value="<%= datas[0].id %>" name="id">
+            姓名：<input type="text" name="name" value="<%= datas[0].name %>">
+            年龄：<input type="text" name="age" value="<%= datas[0].age %>">
+            职业：<input type="text" name="professional" value="<%= datas[0].professional %>">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>
